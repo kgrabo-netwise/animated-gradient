@@ -40,20 +40,20 @@
     🌈 Stripe-style Gradient with Custom Colors
   </div>
 
-  <!-- ✅ Working UMD (non-module) version -->
+  <!-- UMD version that works with GitHub Pages -->
   <script src="https://cdn.jsdelivr.net/npm/gradient-canvas@1.0.3/dist/gradient-canvas.min.js"></script>
   <script>
-    const gradient = new Gradient();
-    gradient.initGradient('#gradient-canvas', {
-      colors: [
-        ['#3A639F', '#227B94'],
-        ['#FFDA78', '#3A639F']
-      ],
-      backgroundColor: '#000000',
-      colorStopEase: 'expo.out',
+    document.addEventListener('DOMContentLoaded', function () {
+      const gradient = new Gradient();
+      gradient.initGradient('#gradient-canvas', {
+        colors: [
+          ['#3A639F', '#227B94'],
+          ['#FFDA78', '#3A639F']
+        ],
+        backgroundColor: '#000000',
+        colorStopEase: 'expo.out',
+      });
     });
   </script>
 </body>
 </html>
-
-
