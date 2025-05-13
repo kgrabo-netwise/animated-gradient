@@ -8,18 +8,18 @@
     html, body {
       margin: 0;
       padding: 0;
-      overflow: hidden;
       height: 100%;
+      overflow: hidden;
+      background: black;
     }
 
     #gradient-canvas {
-      position: absolute;
+      position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      display: block;
-      z-index: 0;
+      z-index: -1;
     }
 
     .content {
@@ -40,10 +40,13 @@
     🌈 Stripe-style Gradient with Custom Colors
   </div>
 
-  <!-- UMD version that works with GitHub Pages -->
   <script src="https://cdn.jsdelivr.net/npm/gradient-canvas@1.0.3/dist/gradient-canvas.min.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function () {
+      const canvas = document.getElementById('gradient-canvas');
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
       const gradient = new Gradient();
       gradient.initGradient('#gradient-canvas', {
         colors: [
@@ -52,6 +55,11 @@
         ],
         backgroundColor: '#000000',
         colorStopEase: 'expo.out',
+      });
+
+      window.addEventListener('resize', () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
       });
     });
   </script>
